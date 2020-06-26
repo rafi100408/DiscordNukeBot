@@ -1,6 +1,8 @@
 # Discord Nuke Bot
 A Discord bot, made from Python, intended to nuke a server. Made for my [YouTube channel](https://www.youtube.com/channel/UCDSHlAERINyHPbAkINm7OjQ?view_as=subscriber).
 
+Please do not steal my code without my permission. If you want to showcase this in a video, please credit me.
+
 # Warning
 This is **against** the Discord TOS (terms of service)! Please do not nuke a random server because you're bored. Only nuke a server that you created for the purpose of testing or had been granted permission to from the owner.
 
