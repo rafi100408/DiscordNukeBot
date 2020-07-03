@@ -170,7 +170,7 @@ async def nickname(ctx):
 @commands.check(allowed)
 async def purge(ctx):
     """Deletes all messages from all channels.
-    NOTE: Only deletes 100 messages at a time.
+    Note: Only deletes 100 messages at a time.
     That is not at least 14 days old."""
     for tc in ctx.guild.text_channels:
         await tc.purge(bulk=True)
