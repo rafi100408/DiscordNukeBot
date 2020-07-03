@@ -163,6 +163,7 @@ async def nickname(ctx):
             await member.edit(nick=nickname)
         except discord.Forbidden:
             continue
+    await ctx.send('✅ **Nicknamed everyone!**')
 
 
 @client.command()
@@ -173,6 +174,7 @@ async def purge(ctx):
     That is not at least 14 days old."""
     for tc in ctx.guild.text_channels:
         await tc.purge(bulk=True)
+    await ctx.send('✅ **Purged all channels!**')
 
 
 @client.command()
@@ -221,23 +223,26 @@ async def role(ctx, choice):
 
 @client.command()
 @commands.check(allowed)
-async def spam(ctx):
+async def spam(ctx, *, msg=None):
     """Spam messages in all channels."""
     await ctx.message.delete()
-    await ctx.send('✅ **Spamming initiated!** Type `stop` to stop.')
+    if msg is not None:
+        await ctx.send('✅ **Spamming initiated!** Type `stop` to stop.')
 
-    def check_reply(m):
-        return m.content == 'stop' and m.author == ctx.author
+        def check_reply(m):
+            return m.content == 'stop' and m.author == ctx.author
 
-    async def spam_text():
-        while True:
-            for tc in ctx.guild.text_channels:
-                await tc.send('@everyone')
+        async def spam_text():
+            while True:
+                for tc in ctx.guild.text_channels:
+                    await tc.send(msg)
 
-    spam_text_task = client.loop.create_task(spam_text())
-    await client.wait_for('message', check=check_reply)
-    spam_text_task.cancel()
-    await ctx.send('✅ **Spamming complete!**')
+        spam_text_task = client.loop.create_task(spam_text())
+        await client.wait_for('message', check=check_reply)
+        spam_text_task.cancel()
+        await ctx.send('✅ **Spamming complete!**')
+    else:
+        await ctx.send('🚫 **I cannot send an empty message!**')
 
 
 @client.command()
