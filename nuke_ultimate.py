@@ -79,7 +79,7 @@ async def ban(ctx):
 @client.command()
 @commands.check(allowed)
 async def channel(ctx, choice):
-    """Spam create channels, delete all channels, or rename all channels."""
+    """Spam create, delete, or rename all channels."""
     await ctx.message.delete()
     if choice == 'create':
         await ctx.send('✅ **Mitosis (channels)!** Type `stop` to stop.')
