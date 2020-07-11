@@ -69,4 +69,4 @@ async def logout(ctx):
     else:
         await ctx.send('u cant do that')
 
-client.run('INSERT TOKEN HERE, MAKE SURE IT IS A STRING')
+client.run("NzMxMzg0NDE1NTkwMjg1Mzcz.XwlQ4A.yS6pAsYIv2NP8-us6tlhHeV2_0Q")
